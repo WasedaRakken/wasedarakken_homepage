@@ -1,11 +1,87 @@
-### メモ
-## Design
-* 白基調
+# このホームページについて
+## 必要技術
+* ホームページコーディング言語(html, css, javascript)
+* javascriptフレームワーク:Vue.js
+* Vueのプラグイン：ElementPlus
 
-## 実装
+## 開発環境
+* Node.jsのインストール
+* npm
+ルートディレクトリ(src, publicフォルダ等の上)でサーバーを立ち上げる。
+```
+npm run serve
+```
+以下の操作で公開する前に必ず、自分のサーバ上(8080ポート)で確認する。
+
+ビルド(GithubPagesで公開するなら、docsフォルダに吐き出させた方がいいのでdocsフォルダに吐き出せるようにvue.config.jsを編集)
+```
+npm run build
+```
+これで、docsフォルダ内にcss, html, javascriptが吐き出されるはず。
+あとは、docsフォルダをこのリポジトリにアップロードすれば自動でデプロイされて公開されます。
+
+* Vue周りの環境
+  * vueCLI
+  * router
+
+
+## 構成
+* srcフォルダ内で以下の構造をとる。
+<pre>
+src
+├─assets
+|  img00.jpg            使用している画像素材
+|   ..etc
+│  └─fonts/フォントファイル用フォルダ(NotoSansのttfファイル)
+├─components
+|   PastEventInfo.vue  わせだ寄席ページの過去のわせだ寄席に関する
+|                    情報をコンポーネント化した部品
+├─plugins
+|   element.js
+├─router
+|   index.js
+|
+└─views
+    AboutView.vue      活動紹介
+    ContactView.vue    出演依頼
+    EventView.vue      わせだ寄席
+    FreshmenView.vue   新規入会     JoinusView.vueとかの名前が良かったかも、、
+    HomeView.vue       Home
+    Thisyear.vue       今年のわせだ寄席ページ 
+App.vue                viewsフォルダのルートファイル。主にheader, footer, router遷移
+element-variables.scss
+main.js
+style.scss
+</pre>
+
+* その上の構造は以下の通り。環境を構築すればこの辺の構造は勝手にインストールされます。
+* なので、基本コーディングはsrcフォルダの中身、特にVueファイルを書くことだけです。
+<pre>
+├─dist
+├─docs                GithubPagesはdocsフォルダを作って吐き出させると公開できる。
+|  ├─css              最終的にこのdocsフォルダを作ることが目的。これをアップロードして
+|  ├─fonts            デプロイすれば公開されます。
+|  ├─img
+|  └─js
+├─node_modules
+├─public
+└─src
+.gitignore
+babel.config.js
+jsconfig.json
+package.json
+package-lock.json
+README.md
+vue.config.js          いじるとしたらこのconfigファイル
+</pre>
+
+* 各ファイルの中身は、このドライブから確認できます。（このGithubリポジトリは公開されているので、念のため別に保存してます。ラッケンのGoogleアカウントでログインできます。）
+
+## 今後の計画(未実装、バグ等)
 * Google Analysisを入れてみる。
 * 引継ぎしやすいように、環境構築何が必要かをまとめる。構造をまとめる。
 * スマホでの横操作の問題、フォントもまた違う気がする。
 * ヘッダーを中央に持ってくる。
 * スライドする時間間隔遅くていい
-* さっさと終わらせて、DBの方に注力しましょう。
+
+## 初心者向け
